@@ -1,23 +1,26 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import Intro from './componen/Intro';
+import Butt from './componen/Mybutt';
+import Navibar from './componen/Navbar';
+import StateButt from './componen/StateButt';
 
 function App() {
+  const [getNav, setNav] = useState("")
+  
+  const changeNav = () =>{
+    setNav("Eurobeat 😎")
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header> 
+        <Navibar navValue = {getNav}/>
       </header>
+      <button onClick={() => changeNav()}>Add Cool Sunglasses</button>
+      <Intro name = 'mas tukam'/>
+      <Butt />
+      <StateButt />
+      <Intro name = 'mas rusdi'/>
     </div>
   );
 }
